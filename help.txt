@@ -1,0 +1,68 @@
+How it should run:
+
+WITH TRANSLATION:
+
+main.py --contigs <path/to/contigs> --plastic <plastic_name> --output <path/to/output/folder>
+
+run:
+
+translate_search.py
+quantify_hmm.py
+
+NO TRANSLATION:
+
+main.py --contigs <path/to/contigs> --plastic <plastic_name> --output <path/to/output/folder> --skip_translation
+
+run:
+
+quantify_hmm.py 
+
+CUSTOM hmms:
+
+main.py --contigs <path/to/contigs> --plastic <plastic_name> --output <path/to/output/folder> --custom_hmm <path/to/hmms_file>
+
+```````
+
+CASE SCENARIO FOR TROUBLE SHOOTING:
+
+```````
+
+for id in . {
+	python3 PlastEnz --output ./{file} --plastic PET --bam ./{file}.bam --ORF ./{file}.fa
+
+Done < id
+
+Solution:
+
+Output: a path with a new folder to be created at the end: ./Blauwwe 
+Then at ./Blauwwe:
+	Creates ./Blauwe/PET
+	Creates temps (saves all the temp files there)
+	Abundance_table.tsv
+
+Bams/Gene_counts: folder containing .bam files or .tsv files.
+
+ORF: exact ORFs file
+Contigs: exact contigs file
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
