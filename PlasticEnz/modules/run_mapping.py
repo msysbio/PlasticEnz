@@ -96,7 +96,7 @@ def calculate_abundance(bam_file, genes_file):
 
 def process_multiple_samples(forward_reads, reverse_reads, genes_file, outdir):
     if len(forward_reads) != len(reverse_reads):
-        raise ValueError("Mismatched number of forward and reverse read files.")
+        raise ValueError("❌ERROR: Mismatched number of forward and reverse read files.")
 
     combined_df = pd.DataFrame()
 

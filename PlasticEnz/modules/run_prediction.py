@@ -67,28 +67,28 @@ def run_predictions(fasta_file, summary_table, model_path, gpu):
     if gpu:  # Check if GPU is requested
         if torch.cuda.is_available():
             device = torch.device("cuda")
-            print("GPU detected and will be used.")
+            print("✅GPU detected and will be used.")
         else:
-            print("No GPU detected. Please install CUDA for GPU support.")
+            print("❌No GPU detected. Please install CUDA for GPU support.")
             device = torch.device("cpu")
     else:
-        print("Using CPU for computations.")
+        print("🧪Using CPU for computations.")
         device = torch.device("cpu")
 
     model.to(device)
 
     # Generate embeddings
-    print("Generating embeddings...")
+    print("🧪Generating embeddings...")
     embeddings, sequence_ids = generate_embeddings(fasta_file, tokenizer, model, device)
 
     # Predict using random forest
-    print("Making predictions...")
+    print("🧪Making predictions...")
     probabilities = predict_plastic_degrading_proteins(embeddings, model_path)
 
     # Update summary table
-    print("Updating summary table...")
+    print("🧪Updating summary table...")
     update_summary_table(summary_table, sequence_ids, probabilities)
-    print("Predictions added to summary table.")
-    print("Prediction step completed successfully!")
+    print("✅Predictions added to summary table.")
+    print("✅Prediction step completed successfully!")
 
 
