@@ -1,2 +1,2 @@
 recursive-include PlasticEnz/data *
-recursive-include test *
+recursive-include PlasticEnz/test *
