@@ -10,7 +10,8 @@ setup(
     description="A toolset for identifying plastic-degrading enzymes",
     author="Your Name",
     packages=find_packages(),  # Automatically finds all submodules
-    include_package_data=True,  # Ensure non-code files are included (e.g., data files)
+    include_package_data=True,  # Ensure non-code files are included
+    package_data={"": ["test/*"]},  # ✅ Explicitly include test files
     python_requires=">=3.11.11",  # Ensure compatibility with required Python version
     install_requires=required_packages,  # Install dependencies from requirements.txt
     entry_points={
