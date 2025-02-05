@@ -11,7 +11,7 @@ RUN apt-get update && apt-get install -y git && \
 
 # 4️⃣ Create a Conda environment with HMMER, Prodigal, DIAMOND, and Python 3.11.11
 RUN conda create -n plasticenz_env -c bioconda -c conda-forge -c defaults \
-    python=3.11.11 prodigal hmmer diamond && conda clean --all -y
+    python=3.11.11 prodigal hmmer diamond bowtie2 samtools && conda clean --all -y
 
 # 5️⃣ Activate Conda environment and install Python dependencies
 SHELL ["conda", "run", "-n", "plasticenz_env", "/bin/bash", "-c"]
@@ -33,3 +33,4 @@ RUN chmod -R 777 /PlasticEnz
 
 # 🔟 Define entry point for the container
 ENTRYPOINT ["conda", "run", "-n", "plasticenz_env", "plasticenz"]
+
