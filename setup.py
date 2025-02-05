@@ -8,11 +8,9 @@ setup(
     version="0.1.0",
     description="A toolset for identifying plastic-degrading enzymes",
     author="Your Name",
-    packages=find_packages(),  # Finds all Python packages (must contain __init__.py)
-    include_package_data=True,  # Ensures non-code files are included
-    package_data={
-        "PlasticEnz": ["test/*"],  # Explicitly include the test dataset
-    },
+    packages=find_packages(include=["PlasticEnz", "PlasticEnz.*"]),
+    include_package_data=True,  # Ensure non-code files (like test data) are included
+    package_data={"PlasticEnz": ["test/*"]},  # Explicitly include test data
     python_requires=">=3.11.11",
     install_requires=required_packages,
     entry_points={
@@ -21,5 +19,7 @@ setup(
         ],
     },
 )
+
+
 
 
