@@ -9,7 +9,7 @@ setup(
     description="A toolset for identifying plastic-degrading enzymes",
     author="Your Name",
     packages=find_packages(),
-    package_data={'PlasticEnz' : ['test/*']}
+    package_data={'PlasticEnz' : ['test/*']},
     python_requires=">=3.11.11",
     install_requires=required_packages,
     entry_points={
