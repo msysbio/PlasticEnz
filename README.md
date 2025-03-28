@@ -8,7 +8,6 @@
     git clone https://github.com/AMK06-1993/PlasticEnz.git
 
 2. Set Up the Conda Environment with External Tools
-Since some external tools aren’t available via pip, start by creating a new conda environment with all required tools. Open your terminal and run:
     ```bash
     conda create -n plasticenz_env --no-channel-priority -c bioconda -c conda-forge -c defaults python=3.11 libffi=3.4.2 prodigal hmmer diamond bowtie2 samtools && conda clean --all -y
 
