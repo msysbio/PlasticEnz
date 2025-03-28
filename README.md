@@ -11,20 +11,21 @@ git clone https://github.com/AMK06-1993/PlasticEnz.git
  ```bash
 conda create -n plasticenz_env --no-channel-priority -c bioconda -c conda-forge -c defaults python=3.11 libffi=3.4.2 prodigal hmmer diamond bowtie2 samtools && conda clean --all -y
 ```
-Activate the environment
+4. Activate the environment
 ```bash
 conda activate plasticenz_env
 ```
-3. Install Python Package Dependencies
-With your conda environment activated, the required Python packages by running:
+5. Install Python Package Dependencies
+With your conda environment activated, navigate to the package folder and install the remaining python packages:
 ```bash
+cd PlasticEnz
 pip install -r requirements.txt
 ```
-4. Install the package
+6. Install the package
 ```bash
 pip install .
 ```
-5. Test if it runs correctly
+7. Test if it runs correctly
 Run:
 ```bash
 plasticenz OR plasticenz --help
