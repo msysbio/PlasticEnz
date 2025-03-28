@@ -10,7 +10,7 @@ setup(
     author="Your Name",
     include_package_data=True,
     packages=find_packages(),
-    python_requires=">=3.11.11",
+    python_requires=">=3.11",
     install_requires=required_packages,
     package_data={
         'PlasticEnz': [
