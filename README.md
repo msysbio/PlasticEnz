@@ -11,7 +11,7 @@
     ```bash
     conda create -n plasticenz_env --no-channel-priority -c bioconda -c conda-forge -c defaults python=3.11 libffi=3.4.2 prodigal hmmer diamond bowtie2 samtools && conda clean --all -y
 
-Activate the environment:
+Activate the environment
     ```bash    
     conda activate plasticenz_env
 
