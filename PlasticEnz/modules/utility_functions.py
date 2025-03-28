@@ -26,8 +26,8 @@ def validate_inputs(args):
     if not (args.genome or args.contigs or args.proteins):
         sys.exit("Error: You must provide --genome, --contigs, or --proteins as input.")
 
-    if args.genome and not (args.reads_forward and args.reads_reverse):
-        sys.exit("Error: When using --genome, you must also provide both forward and reverse reads (-1 and -2).")
+    #if args.genome and not (args.reads_forward and args.reads_reverse):
+        #sys.exit("Error: When using --genome, you must also provide both forward and reverse reads (-1 and -2).")
 
 def validate_polymers(polymers):
     """Validate that the provided polymers are in the list of valid polymers."""
