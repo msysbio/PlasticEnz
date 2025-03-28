@@ -4,27 +4,28 @@
 ## Option A: Using Conda/pip downloads
 
 1. Clone the repositiory and navigate into the tool main folder (where setup.py is located)
-    ```bash
+```bash
     git clone https://github.com/AMK06-1993/PlasticEnz.git
-
-2. Set Up the Conda Environment with External Tools
-    ```bash
+```
+3. Set Up the Conda Environment with External Tools
+ ```bash
     conda create -n plasticenz_env --no-channel-priority -c bioconda -c conda-forge -c defaults python=3.11 libffi=3.4.2 prodigal hmmer diamond bowtie2 samtools && conda clean --all -y
-
+```
 Activate the environment
-    ```bash    
+```bash    
     conda activate plasticenz_env
-
+```
 3. Install Python Package Dependencies
 With your conda environment activated, the required Python packages by running:
-    ```bash
+```bash
     pip install -r requirements.txt
-    
+```
 4. Install the package
-    ```bash
+```bash
     pip install .
-    
+```
 5. Test if it runs correctly
 Run:
-    ```bash
+```bash
     plasticenz OR plasticenz --help
+```
