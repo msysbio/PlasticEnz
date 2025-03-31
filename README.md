@@ -26,7 +26,12 @@ pip install -r requirements.txt
 pip install .
 ```
 7. Test if it runs correctly
-Run:
-```bash
-plasticenz OR plasticenz --help
-```
+
+  To see all the options:
+  ```bash
+  plasticenz OR plasticenz --help
+  ```
+  To run a test-case:
+  ```bash
+  plasticenz --test --outdir .
+  ```
