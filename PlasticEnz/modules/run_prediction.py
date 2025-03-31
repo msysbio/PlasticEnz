@@ -5,8 +5,15 @@ import torch
 from transformers import BertTokenizer, BertModel
 import pandas as pd
 from Bio import SeqIO
+import platform
 
 VALID_AMINO_ACIDS = set("ACDEFGHIKLMNPQRSTVWY")
+
+if platform.system() == "Darwin":
+    os.environ["OMP_NUM_THREADS"] = "1"
+    os.environ["KMP_DUPLICATE_LIB_OK"] = "TRUE"
+
+print("testing")
 
 def preprocess_sequence(seq):
     seq = seq.replace("X", "").replace("x", "").replace("*", "").upper()

@@ -3,7 +3,7 @@ Name: PlasticEnz
 Version: 0.1.0
 Summary: A toolset for identifying plastic-degrading enzymes
 Author: Your Name
-Requires-Python: >=3.11.11
+Requires-Python: >=3.11
 Requires-Dist: Bio==1.7.1
 Requires-Dist: matplotlib==3.10.0
 Requires-Dist: numpy==1.25.2

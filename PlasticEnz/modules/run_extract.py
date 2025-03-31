@@ -45,22 +45,18 @@ def parse_diamond_output(diamond_files):
     return diamond_data
 
 def get_protein_codes(protein_file):
-    """
-    Parse the protein FASTA file and return a dictionary mapping each protein ID
-    to its protein sequence.
-    """
     protein_seqs = {}
     for record in SeqIO.parse(protein_file, "fasta"):
-        protein_seqs[record.id] = str(record.seq)
+        prot_id = record.id.split()[0]  # Use only the first word
+        protein_seqs[prot_id] = str(record.seq)
     return protein_seqs
 
-
 def extract_protein_sequences(protein_file, protein_list, output_file):
-    """Extract unique protein sequences and write them to a FASTA file."""
     unique_proteins = set(protein_list)
     with open(output_file, "w") as out_fasta:
         for record in SeqIO.parse(protein_file, "fasta"):
-            if record.id in unique_proteins:
+            prot_id = record.id.split()[0]  # Normalize the ID
+            if prot_id in unique_proteins:
                 SeqIO.write(record, out_fasta, "fasta")
 
 def write_tsv_file(protein_data, output_tsv, protein_codes):
