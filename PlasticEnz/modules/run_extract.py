@@ -7,7 +7,7 @@ def parse_hmmer_output(hmmer_files):
     """Parse HMMER output files and extract relevant data."""
     hmmer_data = {}
     for file in hmmer_files:
-        polymer = os.path.basename(file).split('_')[1]  # Extract polymer name from filename
+        polymer = os.path.basename(file).split('_')[0]  # Extract polymer name from filename
         with open(file, "r") as f:
             for line in f:
                 if line.startswith("#") or not line.strip():
@@ -29,7 +29,7 @@ def parse_diamond_output(diamond_files):
     """Parse DIAMOND output files and extract relevant data."""
     diamond_data = {}
     for file in diamond_files:
-        polymer = os.path.basename(file).split('_')[1]  # Extract polymer name from filename
+        polymer = os.path.basename(file).split('_')[0]  # Extract polymer name from filename
         with open(file, "r") as f:
             for line in f:
                 parts = line.strip().split()
