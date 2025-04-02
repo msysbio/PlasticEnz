@@ -125,7 +125,7 @@ def run_mapping(forward_reads, reverse_reads, genes_file, outdir):
     combined_df = process_multiple_samples(forward_reads, reverse_reads, genes_file, outdir)
 
     # Save combined DataFrame to final output
-    combined_output = os.path.join(outdir, "combined_abundance_table.tsv")
+    combined_output = os.path.join(outdir,"output", "Abundances_table.tsv")
     combined_df.to_csv(combined_output, sep="\t", index=False)
 
     return combined_output
