@@ -1,2 +1,0 @@
-[console_scripts]
-plasticenz = PlasticEnz.main:main

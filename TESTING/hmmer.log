@@ -1,0 +1,75 @@
+# hmmsearch :: search profile(s) against a sequence database
+# HMMER 3.4 (Aug 2023); http://hmmer.org/
+# Copyright (C) 2023 Howard Hughes Medical Institute.
+# Freely distributed under the BSD open source license.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# query HMM file:                  /lustre1/project/stg_00106/PlasticDaphnia-PlasticTool/PlasticEnz/PlasticEnz-Apr25/PlasticEnz/PlasticEnz/data/polymer_hmms/PET.hmm
+# target sequence database:        ./GC150055_proteins.fa
+# per-seq hits tabular output:     ./PET_PET_HMMER.tblout
+# show alignments in output:       no
+# sequence reporting threshold:    E-value <= 1e-05
+# sequence inclusion threshold:    E-value <= 1e-05
+# number of worker threads:        1
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Query:       PET2  [M=313]
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence      Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------      -----------
+    8.2e-06   25.1   0.0    1.2e-05   24.6   0.0    1.2  1  k141_4000_249  # 273583 # 274524 # 1 # ID=3988_249;partial=00
+
+
+Domain annotation for each sequence:
+>> k141_4000_249  # 273583 # 274524 # 1 # ID=3988_249;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=11-12bp
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   24.6   0.0   7.3e-10   1.2e-05      75     171 ..      84     177 ..      79     210 .. 0.83
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                            1  (313 nodes)
+Target sequences:                      15915  (3986384 residues searched)
+Passed MSV filter:                       586  (0.0368206); expected 318.3 (0.02)
+Passed bias filter:                      481  (0.0302231); expected 318.3 (0.02)
+Passed Vit filter:                        77  (0.0048382); expected 15.9 (0.001)
+Passed Fwd filter:                        25  (0.00157085); expected 0.2 (1e-05)
+Initial search space (Z):              15915  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.13u 0.01s 00:00:00.14 Elapsed: 00:00:00.11
+# Mc/sec: 10607.11
+//
+Query:       PET2  [M=313]
+Scores for complete sequences (score includes all domains):
+   --- full sequence ---   --- best 1 domain ---    -#dom-
+    E-value  score  bias    E-value  score  bias    exp  N  Sequence      Description
+    ------- ------ -----    ------- ------ -----   ---- --  --------      -----------
+    8.2e-06   25.1   0.0    1.2e-05   24.6   0.0    1.2  1  k141_4000_249  # 273583 # 274524 # 1 # ID=3988_249;partial=00
+
+
+Domain annotation for each sequence:
+>> k141_4000_249  # 273583 # 274524 # 1 # ID=3988_249;partial=00;start_type=ATG;rbs_motif=GGA/GAG/AGG;rbs_spacer=11-12bp
+   #    score  bias  c-Evalue  i-Evalue hmmfrom  hmm to    alifrom  ali to    envfrom  env to     acc
+ ---   ------ ----- --------- --------- ------- -------    ------- -------    ------- -------    ----
+   1 !   24.6   0.0   7.3e-10   1.2e-05      75     171 ..      84     177 ..      79     210 .. 0.83
+
+
+
+Internal pipeline statistics summary:
+-------------------------------------
+Query model(s):                            1  (313 nodes)
+Target sequences:                      15915  (3986384 residues searched)
+Passed MSV filter:                       586  (0.0368206); expected 318.3 (0.02)
+Passed bias filter:                      481  (0.0302231); expected 318.3 (0.02)
+Passed Vit filter:                        77  (0.0048382); expected 15.9 (0.001)
+Passed Fwd filter:                        25  (0.00157085); expected 0.2 (1e-05)
+Initial search space (Z):              15915  [actual number of targets]
+Domain search space  (domZ):               1  [number of targets reported over threshold]
+# CPU time: 0.13u 0.00s 00:00:00.13 Elapsed: 00:00:00.11
+# Mc/sec: 10758.21
+//
+[ok]
+🧪Running command: hmmsearch -E 1e-05 --incE 1e-05 --cpu 1 --noali --tblout ./PET_PET_HMMER.tblout /lustre1/project/stg_00106/PlasticDaphnia-PlasticTool/PlasticEnz/PlasticEnz-Apr25/PlasticEnz/PlasticEnz/data/polymer_hmms/PET.hmm ./GC150055_proteins.fa
+🧪Using bitscore filter: 20

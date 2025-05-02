@@ -1,11 +1,3 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Fri Jan 24 18:35:46 2025
-
-@author: u0145079
-"""
-
 import sys
 import pandas as pd
 from Bio import SearchIO

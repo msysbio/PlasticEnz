@@ -1,0 +1,7 @@
+*.pyc
+__pycache__/
+.DS_Store
+__pycache__/
+*.pyc
+.DS_Store
+PlasticEnz.egg-info/
