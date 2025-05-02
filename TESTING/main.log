@@ -1,7 +1,0 @@
-2025-04-28 12:58:52,737 - INFO - Running prediction step.
-2025-04-28 13:02:00,347 - INFO - PlasticEnz analysis completed successfully.
-2025-04-28 13:37:12,823 - INFO - Running prediction step.
-2025-04-28 13:39:29,500 - INFO - PlasticEnz analysis completed successfully.
-2025-04-28 14:06:45,267 - ERROR - Error during BAM abundance extraction: name 'pd' is not defined
-2025-04-28 14:17:06,192 - INFO - Running prediction step.
-2025-04-28 14:19:32,951 - INFO - PlasticEnz analysis completed successfully.
