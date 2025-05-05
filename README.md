@@ -10,7 +10,7 @@ git clone https://github.com/akrzyno/PlasticEnz.git
 ```
 3. Set Up the Conda Environment with External Tools
  ```bash
-conda create -n plasticenz_env --no-channel-priority -c bioconda -c conda-forge -c defaults python=3.11 libffi=3.4.2 prodigal hmmer diamond bowtie2 samtools && conda clean --all -y
+conda create -n plasticenz_env --no-channel-priority -c bioconda -c conda-forge -c defaults python=3.11 libffi=3.4.2 prodigal hmmer diamond bowtie2 samtools
 ```
 4. Activate the environment
 ```bash
