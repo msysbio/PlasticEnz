@@ -1,3 +1,4 @@
+![logo-transparent](https://github.com/user-attachments/assets/bb5be2a1-3783-457e-85d8-e2278691697a)
 
 # How to Download and Run PlasticEnz
 
