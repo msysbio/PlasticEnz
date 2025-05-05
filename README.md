@@ -6,7 +6,7 @@
 
 1. Clone the repositiory and navigate into the tool main folder (where setup.py is located)
 ```bash
-git clone https://github.com/AMK06-1993/PlasticEnz.git
+git clone https://github.com/akrzyno/PlasticEnz.git
 ```
 3. Set Up the Conda Environment with External Tools
  ```bash
