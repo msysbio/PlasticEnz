@@ -30,7 +30,7 @@ def run_bowtie2(build_dir, reads_forward, reads_reverse, genes_file, outdir, sam
         subprocess.run(cmd, stdout=log, stderr=log, check=True)
 
     # Sort SAM into BAM using samtools
-    cmd_sort = ["samtools", "sort", "@", str(cores), "-o", bam_file, sam_file]
+    cmd_sort = ["samtools", "sort", "-@", str(cores), "-o", bam_file, sam_file]
     subprocess.check_call(cmd_sort)
 
     # Index BAM file
