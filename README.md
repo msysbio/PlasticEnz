@@ -4,31 +4,34 @@
 PlasticEnz offers a streamlined and accessible solution for identifying plastic-degrading enzymes in metagenomic data by combining homology-based and machine learning approaches. 
 It accepts contigs, genomes, MAGs and proteins and screens them for potential plastic degrading homologous enzymes.
 
-## How to Download and Run PlasticEnz
+![Figure 1](https://github.com/user-attachments/assets/3291f071-7194-463b-93b8-aab7e2f03c3f)
 
-1. Clone the repositiory and navigate into the tool main folder (where setup.py is located)
+
+## Downloading PlasticEnz
+
+Clone the repositiory and navigate into the tool main folder (where setup.py is located)
 ```bash
 git clone https://github.com/akrzyno/PlasticEnz.git
 ```
-3. Set Up the Conda Environment with External Tools
+Set Up the Conda Environment with External Tools
  ```bash
 conda create -n plasticenz_env --no-channel-priority -c bioconda -c conda-forge -c defaults python=3.11 libffi=3.4.2 prodigal hmmer diamond bowtie2 samtools
 ```
-4. Activate the environment
+Activate the environment
 ```bash
 conda activate plasticenz_env
 ```
-5. Install Python Package Dependencies
+Install Python Package Dependencies
 With your conda environment activated, navigate to the package folder and install the remaining python packages:
 ```bash
 cd PlasticEnz
 pip install -r requirements.txt
 ```
-6. Install the package
+Install the package
 ```bash
 pip install .
 ```
-7. Test if it runs correctly
+Test if it runs correctly
 
   To see all the options:
  ```bash
@@ -44,11 +47,15 @@ Please before using the PlasticEnz on your dataset run the test-case (data inclu
 
 ```bash
   plasticenz --test --outdir .
-  ```
-
-
+```
+Wait until you see "✅PlasticEnz analysis completed successfully!" and check the outdir folder for the output folder. 
+If you see three these files there: 
+Abundances_table.tsv	
+Proteins_unique.fa	
+Summary_table.tsv,you are good to go.
 ## All options
 ```
+
        ___ _           _   _        __          
       / _ | | __ _ ___| |_(_) ___  /___ __  ____
      / /_)| |/ _` / __| __| |/ __|/_\| '_ \|_  /
@@ -58,15 +65,17 @@ Please before using the PlasticEnz on your dataset run the test-case (data inclu
     
     #####################################
     #        Welcome to PlasticEnz      #
-    #  A Tool for Detecting Plastic-    #
-    #   Degrading Enzymes from Data     #
     #####################################
     
+    
 
-Please remember to cite the following tools if used in your analysis:
-- Prodigal: Hyatt et al., 2010. DOI: 10.1186/1471-2105-11-119
-- HMMER: Eddy, 1998. DOI: 10.1093/bioinformatics/14.9.755
-- DIAMOND: Buchfink et al., 2015. DOI: 10.1038/nmeth.3176
+Please remember to cite following tools:
+- Prodigal: Hyatt et al., 2010. BMC Bioinformatics. DOI: 10.1186/1471-2105-11-119
+- HMMER: Eddy, 2011. PLoS Comput Biol. DOI: 10.1371/journal.pcbi.1002195
+- DIAMOND: Buchfink et al., 2015. Nat Methods. DOI: 10.1038/nmeth.3176
+- Bowtie2: Langmead & Salzberg, 2012. Nat Methods. DOI: 10.1038/nmeth.1923
+- Samtools: Danecek et al., 2021. Gigascience. DOI: 10.1093/gigascience/giab008
+- ProtTrans: Elnaggar et al., 2022. IEEE TPAMI. DOI: 10.1109/TPAMI.2021.3095381
 
 
 usage: plasticenz [-h] [-c CONTIGS] [-1 READS_FORWARD] [-2 READS_REVERSE] [-p PROTEINS] [-g GENOME] [--cores CORES] [--polymer POLYMER] [--outdir OUTDIR]
