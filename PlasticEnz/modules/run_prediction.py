@@ -79,24 +79,24 @@ def update_summary_table(summary_table, sequence_ids, predictions, col_names=Non
     merged_df.to_csv(summary_table, sep="\t", index=False)
 
 def run_predictions(fasta_file, summary_table, model_path, gpu, polymers=None, model_tag="model"):
-    print("🧪Loading ProtBERT model...")
+    print("🔄Loading ProtBERT model...")
     tokenizer, bert_model, device = load_protbert_model()
     if gpu:
         if torch.cuda.is_available():
             print("✅GPU detected and will be used.")
         else:
-            print("❌No GPU detected. Running on CPU.")
+            print("✅Running on CPU.")
             device = torch.device("cpu")
             bert_model.to(device)
     else:
-        print("🧪Using CPU for computations.")
+        print("🔄Using CPU for computations.")
         device = torch.device("cpu")
         bert_model.to(device)
     
-    print("🧪Generating embeddings using new protocol...")
+    print("🔄Generating embeddings...")
     embeddings, sequence_ids = generate_embeddings(fasta_file, tokenizer, bert_model, device, batch_size=16)
     
-    print("🧪Loading prediction model...")
+    print("🔄Loading prediction model...")
     ext = os.path.splitext(model_path)[1]
     if ext == ".pt":
         from torch import nn
@@ -175,7 +175,6 @@ def run_predictions(fasta_file, summary_table, model_path, gpu, polymers=None, m
     
     merged.to_csv(summary_table, sep="\t", index=False)
     
-    print("✅Predictions added to summary table.")
     print("✅Prediction step completed successfully!")
 
 
