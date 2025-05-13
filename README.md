@@ -1,4 +1,6 @@
-![logo-transparent](https://github.com/user-attachments/assets/bb5be2a1-3783-457e-85d8-e2278691697a)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/bb5be2a1-3783-457e-85d8-e2278691697a" alt="logo-transparent" width="300">
+</p>
 
 ## What is PlasticEnz?
 PlasticEnz offers a streamlined and accessible solution for identifying plastic-degrading enzymes in metagenomic data by combining homology-based and machine learning approaches. 
