@@ -8,42 +8,81 @@ It accepts contigs, genomes, MAGs and proteins and screens them for potential pl
 
 ![Figure 1](https://github.com/user-attachments/assets/3291f071-7194-463b-93b8-aab7e2f03c3f)
 
-
 ## Downloading PlasticEnz
 
-Clone the repositiory and navigate into the tool main folder (where setup.py is located)
+#### 1. Clone the repositiory and navigate into the tool main folder (where setup.py is located)
 ```bash
 git clone https://github.com/akrzyno/PlasticEnz.git
 ```
-Set Up the Conda Environment with External Tools
+#### 2. Set Up the Conda Environment with External Tools
  ```bash
 conda create -n plasticenz_env --no-channel-priority -c bioconda -c conda-forge -c defaults python=3.11 libffi=3.4.2 prodigal hmmer diamond bowtie2 samtools
 ```
-Activate the environment
+#### 3. Activate the environment
 ```bash
 conda activate plasticenz_env
 ```
-Install Python Package Dependencies
+#### 4. Install Python Package Dependencies
 With your conda environment activated, navigate to the package folder and install the remaining python packages:
 ```bash
 cd PlasticEnz
 pip install -r requirements.txt
 ```
-Install the package
+#### 5. Install the package
 ```bash
 pip install .
 ```
-Test if it runs correctly
+#### 6. Test if it runs correctly
 
-  To see all the options:
  ```bash
-  plasticenz
- ```
-or
- ```bash
-  plasticenz --help
- ```
+plasticenz --test --outdir .
+```
+####  7. To see all the options:
+ ```bash plasticenz``` or ```bash plasticenz --help```
 
+### Optional: Install DeepSig for Secretory Signal Prediction
+
+PlasticEnz can optionally use DeepSig to predict signal peptides (secretory proteins). DeepSig is not installed by default.
+
+#### 1. Install the DeepSig Python package
+
+Activate your PlasticEnz environment, then run:
+
+ ```bash
+pip install "PlasticEnz[deepsig]"
+```
+#### DeepSig requires TensorFlow. Install the correct build for your platform:
+
+For <b> Linux / Intel macOS </b>
+
+ ```bash
+pip install "tensorflow==2.12.*"
+```
+
+For <b> Apple Silicon (M1/M2/M3 Macs) </b>
+ ```bash
+pip install "tensorflow-macos==2.12.*"
+```
+#### Step 2 — Download the DeepSig repository
+
+DeepSig needs access to its model files. Clone the repo and set the DEEPSIG_ROOT environment variable:
+
+```bash
+git clone https://github.com/BolognaBiocomp/deepsig.git
+cd deepsig
+export DEEPSIG_ROOT=$(pwd)
+```
+#### Step 3 — Test your DeepSig installation
+
+```bash
+python - <<'EOF'
+import os
+print("DEEPSIG_ROOT =", os.getenv("DEEPSIG_ROOT"))
+from deepsig import predictor
+p = predictor.Predictor("gram-")
+print("✅ DeepSig is working.")
+EOF
+```
 ## Running a test-case
 Please before using the PlasticEnz on your dataset run the test-case (data included within the package) to ensure all is sound. To do so run:
 
@@ -55,6 +94,7 @@ If you see three these files there:
 Abundances_table.tsv	
 Proteins_unique.fa	
 Summary_table.tsv,you are good to go.
+
 ## All options
 ```
 
@@ -113,6 +153,7 @@ options:
   --test                Run the tool with a predefined test dataset. (default: False)
   --sensitive           Use neural network model (nn_model.pkl) for sensitive predictions. (default: False)
 ```
+
 ## ❓Troubleshooting
 
 PlasticEnz requires several external tools. If you encounter issues with Conda installation, you can install them manually:
