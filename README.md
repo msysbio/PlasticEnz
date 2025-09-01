@@ -56,7 +56,7 @@ conda create -n signalp6_env python=3.11
 conda activate signalp6_env
 ```
 
-2. Download the latest version of [SignalP 6.0](https://services.healthtech.dtu.dk/services/SignalP-6.0/) (v. 6.0h, Fast) and follow the developer's instructions.
+2. Download the latest version of [SignalP 6.0](https://services.healthtech.dtu.dk/services/SignalP-6.0/) (v. 6.0h, Fast).
 3. Unpack the downlaoded `tar.gz` file.
 4. Open the directory containing the downloaded package, and install it by executing the following command.
 
@@ -71,6 +71,10 @@ SIGNALP_DIR=$(python3 -c "import signalp; import os; print(os.path.dirname(signa
 cp -r signalp-6-package/models/* $SIGNALP_DIR/model_weights/
 ```
 5. The installer created a command `signalp6` on your system that is available within the python environment in which you ran step 1.
+
+6. To run the wrapper:
+
+
 
 ## Running a test-case
 Please before using the PlasticEnz on your dataset run the test-case (data included within the package) to ensure all is sound. To do so run:
