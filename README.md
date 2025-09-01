@@ -56,7 +56,8 @@ conda create -n signalp6_env python=3.11
 conda activate signalp6_env
 ```
 
-2. Please download the latest version of SignalP (v. 6.0h, Fast) and follow the developer's instructions.
+2. Download the latest version of SignalP (v. 6.0h, Fast) and follow the developer's instructions.
+
 This can be done using [SignalP 6.0](https://services.healthtech.dtu.dk/services/SignalP-6.0/).  
 
 3. Unpack the downlaoded `tar.gz` file.
