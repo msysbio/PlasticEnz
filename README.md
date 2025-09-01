@@ -40,49 +40,36 @@ plasticenz --test --outdir .
 ####  7. To see all the options:
  ```bash plasticenz``` or ```bash plasticenz --help```
 
-### Optional: Install DeepSig for Secretory Signal Prediction
+### Optional: Predicting Secretory Plastizymes with SignalP 6 
 
-PlasticEnz can optionally use DeepSig to predict signal peptides (secretory proteins). DeepSig is not installed by default.
+After PlasticEnz has been run, the user may want to conduct extra steps to check whether the predicted plastizymes are secretory proteins.  
+This can be done using [SignalP 6.0](https://services.healthtech.dtu.dk/services/SignalP-6.0/).  
 
-#### 1. Install the DeepSig Python package
+Please download the latest version of SignalP (v. 6.0h, Fast) and follow the developer's instructions.
+We recommend setting up a clean python environment to install the package in in order to avoid conflicts.
 
-Activate your PlasticEnz environment, then run:
-
- ```bash
-pip install "PlasticEnz[deepsig]"
-```
-#### DeepSig requires TensorFlow. Install the correct build for your platform:
-
-For <b> Linux / Intel macOS </b>
+1. Create a clean conda env:
 
  ```bash
-pip install "tensorflow==2.12.*"
+conda create -n signalp6_env python=3.11
+conda activate signalp6_env
 ```
 
-For <b> Apple Silicon (M1/M2/M3 Macs) </b>
+2. Unpack the downlaoded `tar.gz` file.
+3. Open the directory containing the downloaded package, and install it by executing the following command.
+
  ```bash
-pip install "tensorflow-macos==2.12.*"
+pip install signalp-6-package/
 ```
-#### Step 2 — Download the DeepSig repository
 
-DeepSig needs access to its model files. Clone the repo and set the DEEPSIG_ROOT environment variable:
+4. Copy the model files to the location at which the signalp module got installed. The model weight files are large, so this might take a while.
 
-```bash
-git clone https://github.com/BolognaBiocomp/deepsig.git
-cd deepsig
-export DEEPSIG_ROOT=$(pwd)
+ ```bash
+SIGNALP_DIR=$(python3 -c "import signalp; import os; print(os.path.dirname(signalp.__file__))" )
+cp -r signalp-6-package/models/* $SIGNALP_DIR/model_weights/
 ```
-#### Step 3 — Test your DeepSig installation
+5. The installer created a command `signalp6` on your system that is available within the python environment in which you ran step 1.
 
-```bash
-python - <<'EOF'
-import os
-print("DEEPSIG_ROOT =", os.getenv("DEEPSIG_ROOT"))
-from deepsig import predictor
-p = predictor.Predictor("gram-")
-print("✅ DeepSig is working.")
-EOF
-```
 ## Running a test-case
 Please before using the PlasticEnz on your dataset run the test-case (data included within the package) to ensure all is sound. To do so run:
 
