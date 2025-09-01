@@ -42,21 +42,25 @@ plasticenz --test --outdir .
 
 ### Optional: Predicting Secretory Plastizymes with SignalP 6 
 
-After PlasticEnz has been run, the user may want to conduct extra steps to check whether the predicted plastizymes are secretory proteins.  
-This can be done using [SignalP 6.0](https://services.healthtech.dtu.dk/services/SignalP-6.0/).  
+After PlasticEnz has been run, the user may want to conduct extra steps to check whether the predicted plastizymes are secretory proteins. PlasticEnz includes a wrapper function that allows it post-analysis using SignalP 6 package:
 
-Please download the latest version of SignalP (v. 6.0h, Fast) and follow the developer's instructions.
+<i> Teufel, F., Almagro Armenteros, J.J., Johansen, A.R. et al. SignalP 6.0 predicts all five types of signal peptides using protein language models. Nat Biotechnol 40, 1023–1025 (2022). https://doi.org/10.1038/s41587-021-01156-3 </i>
+
+
+1. Create a clean conda env (OPTIONAL):
+
 We recommend setting up a clean python environment to install the package in in order to avoid conflicts.
-
-1. Create a clean conda env:
 
  ```bash
 conda create -n signalp6_env python=3.11
 conda activate signalp6_env
 ```
 
-2. Unpack the downlaoded `tar.gz` file.
-3. Open the directory containing the downloaded package, and install it by executing the following command.
+2. Please download the latest version of SignalP (v. 6.0h, Fast) and follow the developer's instructions.
+This can be done using [SignalP 6.0](https://services.healthtech.dtu.dk/services/SignalP-6.0/).  
+
+3. Unpack the downlaoded `tar.gz` file.
+4. Open the directory containing the downloaded package, and install it by executing the following command.
 
  ```bash
 pip install signalp-6-package/
