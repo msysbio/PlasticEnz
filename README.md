@@ -72,9 +72,23 @@ cp -r signalp-6-package/models/* $SIGNALP_DIR/model_weights/
 ```
 5. The installer created a command `signalp6` on your system that is available within the python environment in which you ran step 1.
 
-6. To run the wrapper:
+6. To run SignalP on your PlasticEnz output:
+Navigate to the  ```extra/ ``` folder inside PlasticEnz and run the provided wrapper script:
 
+ ```bash
+cd PlasticEnz/extra
 
+conda activate signalp6_env
+python signalp6_post.py \
+  --in /path/to/Summary_table.tsv \
+  --out /path/to/Summary_table.signalp6.tsv
+```
+
+7. Output
+
+The new file  ```Summary_table.signalp6.tsv ``` contains all original PlasticEnz results plus one additional column:
+
+ ```signalp6_pred ``` → shows whether each predicted plastizyme is classified as secretory or not.
 
 ## Running a test-case
 Please before using the PlasticEnz on your dataset run the test-case (data included within the package) to ensure all is sound. To do so run:
