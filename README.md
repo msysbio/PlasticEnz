@@ -163,7 +163,7 @@ options:
 
 ## ❓Troubleshooting
 
-PlasticEnz requires several external tools. If you encounter issues with Conda installation, you can install them manually:
+PlasticEnz requires several external tools. If you encounter issues with Conda installation, you can install them manually within the ```plasticenz_env```:
 ```bash
 conda install -c bioconda prodigal=2.6.3
 conda install -c bioconda hmmer=3.4
