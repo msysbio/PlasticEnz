@@ -1,0 +1,14 @@
+#                                                               --- full sequence ---- --- best 1 domain ---- --- domain number estimation ----
+# target name        accession  query name           accession    E-value  score  bias   E-value  score  bias   exp reg clu  ov env dom rep inc description of target
+#------------------- ---------- -------------------- ---------- --------- ------ ----- --------- ------ -----   --- --- --- --- --- --- --- --- ---------------------
+HQ147786.1_1         -          PET2                 -            1.2e-65  218.5   0.0   2.6e-64  214.1   0.0   2.0   1   1   0   1   1   1   1 # 1 # 789 # 1 # ID=132_1;partial=10;start_type=Edge;rbs_motif=None;rbs_spacer=None;gc_cont=0.674
+#
+# Program:         hmmsearch
+# Version:         3.4 (Aug 2023)
+# Pipeline mode:   SEARCH
+# Query file:      /Users/u0145079/Library/CloudStorage/OneDrive-KULeuven/Desktop/Doctorate/PlasticEnz_toolset/Current version/PlasticEnz-Sep25/PlasticEnz/PlasticEnz/data/polymer_hmms/PET.hmm
+# Target file:     ./Bacterioplankton_PLA_proteins.fa
+# Option settings: hmmsearch --tblout ./PET_HMMER.tblout --noali -E 1e-05 --incE 1e-05 --cpu 1 /Users/u0145079/Library/CloudStorage/OneDrive-KULeuven/Desktop/Doctorate/PlasticEnz_toolset/Current version/PlasticEnz-Sep25/PlasticEnz/PlasticEnz/data/polymer_hmms/PET.hmm ./Bacterioplankton_PLA_proteins.fa 
+# Current dir:     /Users/u0145079/Library/CloudStorage/OneDrive-KULeuven/Desktop/Doctorate/PlasticEnz_toolset/Current version/PlasticEnz-Sep25/PlasticEnz/test
+# Date:            Mon Sep  1 15:38:53 2025
+# [ok]
