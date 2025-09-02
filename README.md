@@ -54,7 +54,6 @@ We recommend setting up a clean python environment to install the package in in 
  ```bash
 conda create -n signalp6_env python=3.11
 conda activate signalp6_env
-conda install -c conda-forge pytorch==1.13.1 -y
 ```
 
 2. Download the latest version of [SignalP 6.0](https://services.healthtech.dtu.dk/services/SignalP-6.0/) (v. 6.0h, Fast).
