@@ -61,7 +61,7 @@ conda activate signalp6_env
 4. Open the directory containing the downloaded package, and install it by executing the following command.
 
  ```bash
-pip install signalp-6-package/
+pip install .
 ```
 
 4. Copy the model files to the location at which the signalp module got installed. The model weight files are large, so this might take a while.
