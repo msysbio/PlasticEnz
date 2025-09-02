@@ -67,7 +67,7 @@ pip install .
 4. Copy the model files to the location at which the signalp module got installed. The model weight files are large, so this might take a while.
 
  ```bash
-SIGNALP_DIR=$(python3 -c "import signalp; import os; print(os.path.dirname(signalp.__file__))" )
+SIGNALP_DIR=$(python -c "import signalp; import os; print(os.path.dirname(signalp.__file__))" )
 cp -r signalp-6-package/models/* $SIGNALP_DIR/model_weights/
 ```
 5. The installer created a command `signalp6` on your system that is available within the python environment in which you ran step 1.
