@@ -3,6 +3,9 @@ import os
 import re
 from Bio import SeqIO
 
+def _norm_id(x):
+    return f"id|{str(x).strip().split()[0]}"
+
 def parse_hmmer_output(hmmer_files):
     """Parse HMMER output files and extract relevant data."""
     hmmer_data = {}
@@ -13,7 +16,7 @@ def parse_hmmer_output(hmmer_files):
                 if line.startswith("#") or not line.strip():
                     continue
                 parts = line.split()
-                protein_name = parts[0]
+                protein_name = _norm_id(parts[0]) 
                 evalue = float(parts[4])
                 bitscore = float(parts[5])
                 # Store each entry so that later we can group by polymer.
@@ -33,7 +36,7 @@ def parse_diamond_output(diamond_files):
         with open(file, "r") as f:
             for line in f:
                 parts = line.strip().split()
-                protein_name = parts[0]
+                protein_name = _norm_id(parts[0])
                 evalue = float(parts[10])
                 bitscore = float(parts[11])
                 diamond_data.setdefault(protein_name, []).append({
@@ -52,12 +55,15 @@ def get_protein_codes(protein_file):
     return protein_seqs
 
 def extract_protein_sequences(protein_file, protein_list, output_file):
-    unique_proteins = set(protein_list)
+    wanted = set(protein_list)  # these are already normalized
     with open(output_file, "w") as out_fasta:
         for record in SeqIO.parse(protein_file, "fasta"):
-            prot_id = record.id.split()[0]  # Normalize the ID
-            if prot_id in unique_proteins:
+            nid = _norm_id(record.id)
+            if nid in wanted:
+                record.id = nid
+                record.description = nid
                 SeqIO.write(record, out_fasta, "fasta")
+
 
 def write_tsv_file(protein_data, output_tsv, protein_codes):
     """Write protein data to a TSV file using the extracted protein sequences."""
@@ -74,8 +80,9 @@ def write_tsv_file(protein_data, output_tsv, protein_codes):
                 diamond_evalue = diamond_entry.get("evalue", "NA")
                 diamond_bitscore = diamond_entry.get("bitscore", "NA")
                 homology = "+".join(set(entry["source"] for entry in entries if entry["polymer"] == poly))
+                protein_field = f'"{protein_name}"' 
                 protein_seq = protein_codes.get(protein_name, "")
-                tsv.write(f"{protein_name}\t{protein_seq}\t{homology}\t{poly}\t{hmmer_evalue}\t{hmmer_bitscore}\t{diamond_evalue}\t{diamond_bitscore}\n")
+                tsv.write(f"{protein_field}\t{protein_seq}\t{homology}\t{poly}\t{hmmer_evalue}\t{hmmer_bitscore}\t{diamond_evalue}\t{diamond_bitscore}\n")
 
 
 def run_extract(hmmer_outputs, diamond_outputs, protein_file, output_dir):
