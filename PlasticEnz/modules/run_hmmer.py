@@ -103,12 +103,12 @@ def run_hmmer(proteins, polymer, outdir, evalue, cores, bitscore):
         
         try:
             with open(log_file, "a") as log:
-                log.write(f"🧪Running command: {' '.join(cmd)}\n")
-                log.write(f"🧪Using bitscore filter: {bitscore}\n")
+                log.write(f"Running command: {' '.join(cmd)}\n")
+                log.write(f"Using bitscore filter: {bitscore}\n")
                 subprocess.check_call(cmd, stdout=log, stderr=log)
         except subprocess.CalledProcessError as e:
             with open(log_file, "a") as log:
-                log.write(f"❌ERROR: HMMER command failed: {e}\n")
+                log.write(f"ERROR: HMMER command failed: {e}\n")
         
         # If the output file wasn't created, generate an empty one.
         if not os.path.exists(tblout_file):
