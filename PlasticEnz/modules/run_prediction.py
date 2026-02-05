@@ -174,7 +174,5 @@ def run_predictions(fasta_file, summary_table, model_path, gpu, polymers=None, m
             merged.drop(columns=[col], inplace=True)
     
     merged.to_csv(summary_table, sep="\t", index=False)
-    
-    print("✅Prediction step completed successfully!")
 
 

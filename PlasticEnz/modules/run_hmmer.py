@@ -120,8 +120,6 @@ def run_hmmer(proteins, polymer, outdir, evalue, cores, bitscore):
             filter_by_bitscore(tblout_file, min_bitscore=bitscore)
         
         all_output_files.append(tblout_file)
-    
-    print(f"✅HMMER completed successfully for polymer: {poly}.")
     return all_output_files
 
 
