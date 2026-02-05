@@ -57,7 +57,7 @@ def parse_args():
     # Analysis parameters
     analysis_group = parser.add_argument_group('Analysis Parameters')
     analysis_group.add_argument("--polymer", type=str, default=None,
-                                help="Polymer(s) to screen for. Use 'all' for all available.")
+                                help="Polymer(s) to screen for: LDPE,PBSA,PBS,PCL,PES,PHBV,PLA,P3HP,PBAT,PEA,PET,PHA,PHB. Use 'all' for all available.")
     analysis_group.add_argument("--outdir", type=str, default=None,
                                 help="Output directory.")
     analysis_group.add_argument("--cores", type=int, default=1,

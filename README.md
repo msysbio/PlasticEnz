@@ -117,13 +117,11 @@ Summary_table.tsv,you are good to go.
     \/    |_|\__,_|___/\__|_|\___\__/|_| |_/___|
                                                 
     
-    #####################################
-    #        Welcome to PlasticEnz      #
-    #####################################
+    PlasticEnz - Plastic-Degrading Enzyme Detection Pipeline
     
     
 
-Please remember to cite following tools:
+Please remember to cite these references when using PlasticEnz:
 - Prodigal: Hyatt et al., 2010. BMC Bioinformatics. DOI: 10.1186/1471-2105-11-119
 - HMMER: Eddy, 2011. PLoS Comput Biol. DOI: 10.1371/journal.pcbi.1002195
 - DIAMOND: Buchfink et al., 2015. Nat Methods. DOI: 10.1038/nmeth.3176
@@ -132,14 +130,16 @@ Please remember to cite following tools:
 - ProtTrans: Elnaggar et al., 2022. IEEE TPAMI. DOI: 10.1109/TPAMI.2021.3095381
 
 
-usage: plasticenz [-h] [-c CONTIGS] [-1 READS_FORWARD] [-2 READS_REVERSE] [-p PROTEINS] [-g GENOME] [--cores CORES] [--polymer POLYMER] [--outdir OUTDIR]
-                  [--use_gpu] [--evalue_hmmer EVALUE_HMMER] [--bitscore_hmmer BITSCORE_HMMER] [--evalue_diamond EVALUE_DIAMOND]
-                  [--bitscore_diamond BITSCORE_DIAMOND] [--test] [--sensitive]
+usage: plasticenz [-h] [-c CONTIGS] [-1 READS_FORWARD] [-2 READS_REVERSE] [-p PROTEINS] [-g GENOME] [--polymer POLYMER] [--outdir OUTDIR] [--cores CORES] [--use_gpu] [--sensitive] [--evalue_hmmer EVALUE_HMMER]
+                  [--bitscore_hmmer BITSCORE_HMMER] [--evalue_diamond EVALUE_DIAMOND] [--bitscore_diamond BITSCORE_DIAMOND] [--test]
 
 PlasticEnz: A tool for detecting plastic-degrading enzymes from sequence data.
 
 options:
   -h, --help            show this help message and exit
+  --test                Run the tool with a predefined test dataset. (default: False)
+
+Input Files:
   -c CONTIGS, --contigs CONTIGS
                         Path to contigs file (FASTA). (default: None)
   -1 READS_FORWARD, --reads_forward READS_FORWARD
@@ -150,10 +150,17 @@ options:
                         Path to protein file (FASTA). (default: None)
   -g GENOME, --genome GENOME
                         Path to genome or MAG file (FASTA). (default: None)
-  --cores CORES         Number of CPU cores to use. (default: 1)
+
+Analysis Parameters:
   --polymer POLYMER     Polymer(s) to screen for. Use 'all' for all available. (default: None)
   --outdir OUTDIR       Output directory. (default: None)
+  --cores CORES         Number of CPU cores to use. (default: 1)
+
+Performance Options:
   --use_gpu             Attempt to use GPU for accelerated computations. (default: False)
+  --sensitive           Use neural network model (nn_model.pkl) for sensitive predictions. (default: False)
+
+Search Thresholds:
   --evalue_hmmer EVALUE_HMMER
                         E-value threshold for HMMER search. (default: 1e-05)
   --bitscore_hmmer BITSCORE_HMMER
@@ -162,8 +169,6 @@ options:
                         E-value threshold for DIAMOND search. (default: 1e-05)
   --bitscore_diamond BITSCORE_DIAMOND
                         Minimum alignment quality for DIAMOND search. (default: 20)
-  --test                Run the tool with a predefined test dataset. (default: False)
-  --sensitive           Use neural network model (nn_model.pkl) for sensitive predictions. (default: False)
 ```
 
 ## ❓Troubleshooting
