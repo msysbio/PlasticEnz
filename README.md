@@ -1,12 +1,15 @@
 <p align="center">
-  <img src="https://github.com/user-attachments/assets/bb5be2a1-3783-457e-85d8-e2278691697a" alt="logo-transparent" width="300">
+  <img src="assets/logo.png" alt="PlasticEnz logo" width="300">
 </p>
 
 ## What is PlasticEnz?
 PlasticEnz offers a streamlined and accessible solution for identifying plastic-degrading enzymes in metagenomic data by combining homology-based and machine learning approaches. 
 It accepts contigs, genomes, MAGs and proteins and screens them for potential plastic degrading homologous enzymes.
 
-![Figure 1](https://github.com/user-attachments/assets/3291f071-7194-463b-93b8-aab7e2f03c3f)
+<figure align="center">
+  <img src="https://raw.githubusercontent.com/msysbio/PlasticEnz/main/assets/Tool_flow.png" width="1000">
+  <figcaption><b>Figure 1.</b> Overview of the PlasticEnz workflow.</figcaption>
+</figure>
 
 ## Downloading PlasticEnz
 
@@ -38,7 +41,7 @@ pip install .
 plasticenz --test --outdir .
 ```
 ####  7. To see all the options:
- ```bash plasticenz``` or ```bash plasticenz --help```
+ ```plasticenz``` or ```plasticenz --help```
 
 ### Optional: Predicting Secretory Plastizymes with SignalP 6 
 
