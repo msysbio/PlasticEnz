@@ -199,6 +199,8 @@ conda install -c bioconda diamond=2.1.8
 conda install -c bioconda bowtie2=2.5.4
 conda install -c bioconda samtools=1.21
  ```
+## Cite us
 
+Krzynowek, A., Snoeks, J. and Faust, K. (2026). PlasticEnz: An integrated database and screening tool combining homology and machine learning to identify plastic-degrading enzymes in meta-omics datasets. PLoS Computational Biology, Version 2, published 26 January. https://doi.org/10.1371/journal.pcbi.1013892
 
 
