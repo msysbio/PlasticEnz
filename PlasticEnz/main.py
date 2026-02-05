@@ -4,8 +4,8 @@ import os
 import sys
 import argparse
 import logging
+from time import sleep, time
 from tqdm import tqdm
-from time import sleep
 
 def display_logo():
     """Display the PlasticEnz logo and citations."""
@@ -40,32 +40,53 @@ def simulated_loading_bar(task_name, duration=3):
         sleep(1)
     print(f"{task_name} completed.\n")
 
+
 def parse_args():
     """Set up and return the argument parser."""
     parser = argparse.ArgumentParser(
         description="PlasticEnz: A tool for detecting plastic-degrading enzymes from sequence data.",
         formatter_class=argparse.ArgumentDefaultsHelpFormatter,
     )
+
     # Input files
-    parser.add_argument("-c", "--contigs", type=str, help="Path to contigs file (FASTA).")
-    parser.add_argument("-1", "--reads_forward", type=str, help="Path to forward reads file (FASTQ).")
-    parser.add_argument("-2", "--reads_reverse", type=str, help="Path to reverse reads file (FASTQ).")
-    parser.add_argument("-p", "--proteins", type=str, help="Path to protein file (FASTA).")
-    parser.add_argument("-g", "--genome", type=str, help="Path to genome or MAG file (FASTA).")
-    # Polymer and output directory
-    parser.add_argument("--cores", type=int, default=1, help="Number of CPU cores to use.")
-    parser.add_argument("--polymer", type=str, default=None, help="Polymer(s) to screen for. Use 'all' for all available.")
-    parser.add_argument("--outdir", type=str, default=None, help="Output directory.")
-    # Performance and thresholds
-    parser.add_argument("--use_gpu", action="store_true", help="Attempt to use GPU for accelerated computations.")
-    parser.add_argument("--evalue_hmmer", type=float, default=1e-5, help="E-value threshold for HMMER search.")
-    parser.add_argument("--bitscore_hmmer", type=float, default=20, help="Bitscore value for HMMER search.")
-    parser.add_argument("--evalue_diamond", type=float, default=1e-5, help="E-value threshold for DIAMOND search.")
-    parser.add_argument("--bitscore_diamond", type=float, default=20, help="Minimum alignment quality for DIAMOND search.")
+    input_group = parser.add_argument_group('Input Files')
+    input_group.add_argument("-c", "--contigs", type=str, help="Path to contigs file (FASTA).")
+    input_group.add_argument("-1", "--reads_forward", type=str, help="Path to forward reads file (FASTQ).")
+    input_group.add_argument("-2", "--reads_reverse", type=str, help="Path to reverse reads file (FASTQ).")
+    input_group.add_argument("-p", "--proteins", type=str, help="Path to protein file (FASTA).")
+    input_group.add_argument("-g", "--genome", type=str, help="Path to genome or MAG file (FASTA).")
+
+    # Analysis parameters
+    analysis_group = parser.add_argument_group('Analysis Parameters')
+    analysis_group.add_argument("--polymer", type=str, default=None,
+                                help="Polymer(s) to screen for. Use 'all' for all available.")
+    analysis_group.add_argument("--outdir", type=str, default=None,
+                                help="Output directory.")
+    analysis_group.add_argument("--cores", type=int, default=1,
+                                help="Number of CPU cores to use.")
+
+    # Performance options
+    perf_group = parser.add_argument_group('Performance Options')
+    perf_group.add_argument("--use_gpu", action="store_true",
+                            help="Attempt to use GPU for accelerated computations.")
+    perf_group.add_argument("--sensitive", action="store_true",
+                            help="Use neural network model (nn_model.pkl) for sensitive predictions.")
+
+    # Thresholds
+    threshold_group = parser.add_argument_group('Search Thresholds')
+    threshold_group.add_argument("--evalue_hmmer", type=float, default=1e-5,
+                                 help="E-value threshold for HMMER search.")
+    threshold_group.add_argument("--bitscore_hmmer", type=float, default=20,
+                                 help="Bitscore value for HMMER search.")
+    threshold_group.add_argument("--evalue_diamond", type=float, default=1e-5,
+                                 help="E-value threshold for DIAMOND search.")
+    threshold_group.add_argument("--bitscore_diamond", type=float, default=20,
+                                 help="Minimum alignment quality for DIAMOND search.")
+
     # Test mode
-    parser.add_argument("--test", action="store_true", help="Run the tool with a predefined test dataset.")
-    # New flag to select the sensitive model (neural network)
-    parser.add_argument("--sensitive", action="store_true", help="Use neural network model (nn_model.pkl) for sensitive predictions.")
+    parser.add_argument("--test", action="store_true",
+                        help="Run the tool with a predefined test dataset.")
+
     return parser
 
 def main():
