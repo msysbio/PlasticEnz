@@ -12,7 +12,7 @@ It accepts contigs, genomes, MAGs and proteins and screens them for potential pl
 
 #### 1. Clone the repositiory and navigate into the tool main folder (where setup.py is located)
 ```bash
-git clone https://github.com/akrzyno/PlasticEnz.git
+git clone https://github.com/msysbio/PlasticEnz.git
 ```
 #### 2. Set Up the Conda Environment with External Tools
  ```bash
