@@ -1,0 +1,35 @@
+FROM continuumio/miniconda3:latest
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y ca-certificates && rm -rf /var/lib/apt/lists/*
+
+# Create conda environment with bioinformatics tools
+RUN conda create -y -n plasticenz -c bioconda -c conda-forge \
+    python=3.11 prodigal hmmer diamond bowtie2 samtools \
+    && conda clean -afy
+
+# Activate conda environment
+ENV PATH=/opt/conda/envs/plasticenz/bin:$PATH
+
+# Create non-root user and directories
+RUN useradd -m plasticenz && \
+    mkdir -p /opt/plasticenz/output /opt/huggingface && \
+    chown -R plasticenz:plasticenz /opt/plasticenz /opt/huggingface
+
+USER plasticenz
+WORKDIR /opt/plasticenz
+
+# Install Python dependencies and PlasticEnz
+COPY --chown=plasticenz:plasticenz requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY --chown=plasticenz:plasticenz . .
+RUN pip install --no-cache-dir .
+
+# Set environment variables
+ENV HF_HOME=/opt/huggingface \
+    PLASTICENZ_OUTDIR=/opt/plasticenz/output \
+    PATH=/home/plasticenz/.local/bin:$PATH
+
+ENTRYPOINT ["plasticenz"]
+

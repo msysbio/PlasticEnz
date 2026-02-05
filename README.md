@@ -11,7 +11,7 @@ It accepts contigs, genomes, MAGs and proteins and screens them for potential pl
   <figcaption><b>Figure 1.</b> Overview of the PlasticEnz workflow.</figcaption>
 </figure>
 
-## Downloading PlasticEnz
+## Installing PlasticEnz with conda and pip
 
 #### 1. Clone the repositiory and navigate into the tool main folder (where setup.py is located)
 ```bash
@@ -35,11 +35,40 @@ pip install -r requirements.txt
 ```bash
 pip install .
 ```
+
+## Installing via container (Docker or Podman)
+
+PlasticEnz can be built and run using either Docker or Podman. 
+In the commands below, replace `docker` with `podman` if applicable.
+
+After cloning the repository and navigating inside it, build the image like this:
+
+```bash
+docker build -t plasticenz .
+```
+
 #### 6. Test if it runs correctly
 
- ```bash
-plasticenz --test --outdir .
+Before using the PlasticEnz on your dataset run the test-case (data included within the package) to ensure all is sound. To do so run:
+
+```bash
+  plasticenz --test --outdir .
 ```
+
+When running inside a container:
+
+```bash
+  docker run --rm plasticenz --test --outdir .
+```
+
+Wait until you see "✅PlasticEnz analysis completed successfully!" and check the outdir folder for output files. 
+If you see three these files there: 
+```Abundances_table.tsv```	
+```Proteins_unique.fa```	
+```Summary_table.tsv```. 
+
+You are good to go!
+
 ####  7. To see all the options:
  ```plasticenz``` or ```plasticenz --help```
 
@@ -95,19 +124,8 @@ The new file  ```Summary_table.signalp6.tsv ``` contains all original PlasticEnz
 
  ```signalp6_pred ``` → shows whether each predicted plastizyme is classified as secretory or not.
 
-## Running a test-case
-Please before using the PlasticEnz on your dataset run the test-case (data included within the package) to ensure all is sound. To do so run:
 
-```bash
-  plasticenz --test --outdir .
-```
-Wait until you see "✅PlasticEnz analysis completed successfully!" and check the outdir folder for the output folder. 
-If you see three these files there: 
-Abundances_table.tsv	
-Proteins_unique.fa	
-Summary_table.tsv,you are good to go.
-
-## All options
+## Main screen
 ```
 
        ___ _           _   _        __          
