@@ -152,7 +152,7 @@ Input Files:
                         Path to genome or MAG file (FASTA). (default: None)
 
 Analysis Parameters:
-  --polymer POLYMER     Polymer(s) to screen for. Use 'all' for all available. (default: None)
+  --polymer POLYMER     Polymer(s) to screen for: LDPE,PBSA,PBS,PCL,PES,PHBV,PLA,P3HP,PBAT,PEA,PET,PHA,PHB. Use 'all' for all available. (default: None)
   --outdir OUTDIR       Output directory. (default: None)
   --cores CORES         Number of CPU cores to use. (default: 1)
 
